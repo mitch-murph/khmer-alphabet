@@ -43,7 +43,7 @@ export const useSettingsStore = create<SettingsStore>()(
       },
     }),
     {
-      name: 'learn-khmer-settings',
+      name: 'khmer-alphabet-settings',
     }
   )
 );

@@ -5,7 +5,7 @@
 A focused Khmer language learning web app. Supports alphabet study, three quiz modes, handwriting practice, and future phrase lessons. Character selection is configurable via a persistent settings menu.
 
 **Repo name:** `lang-prac-khmer`  
-**Primary URL:** `https://username.github.io/learn-khmer` (GitHub Pages)  
+**Primary URL:** `https://username.github.io/khmer-alphabet` (GitHub Pages)  
 **Secondary URL:** S3 static website (staging / backup)
 
 ---
@@ -185,7 +185,7 @@ on:
 steps:
   - checkout
   - npm ci
-  - npm run build:pages   # sets VITE_BASE=/learn-khmer/
+  - npm run build:pages   # sets VITE_BASE=/khmer-alphabet/
   - deploy to gh-pages branch via peaceiris/actions-gh-pages
 ```
 
@@ -231,7 +231,7 @@ Run once to create the S3 bucket before first deploy.
 
 ## GitHub Pages: SPA Deep-Link Fix
 
-React Router deep links (e.g. `/learn-khmer/quiz/handwriting`) return 404 on GH Pages because there's no server to redirect to `index.html`. Fix:
+React Router deep links (e.g. `/khmer-alphabet/quiz/handwriting`) return 404 on GH Pages because there's no server to redirect to `index.html`. Fix:
 
 1. `public/404.html` — redirects to `/?p=<encoded-path>`
 2. Small inline script in `index.html` — reads `?p=` and restores the path before React Router boots
@@ -246,7 +246,7 @@ This is a well-established pattern and requires no extra dependencies.
 "scripts": {
   "dev": "vite",
   "build": "tsc -b && vite build",
-  "build:pages": "tsc -b && vite build --base=/learn-khmer/",
+  "build:pages": "tsc -b && vite build --base=/khmer-alphabet/",
   "preview": "vite preview"
 }
 ```
